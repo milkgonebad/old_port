@@ -49,3 +49,140 @@ Migrating to DeviseInvitableAddToUsers (20131030224020)
   [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20131030224020"]]
   [1m[35m (0.9ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-30 18:42:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (uninitialized constant ApplicationController::Base):
+  app/controllers/home_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (33.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (19.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (105.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-30 18:43:26 -0400
+
+ActionController::RoutingError (uninitialized constant ApplicationController::Base):
+  app/controllers/home_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (35.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-30 18:43:49 -0400
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 741ms (Views: 690.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-30 18:43:50 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-30 18:43:50 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-30 18:43:50 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-30 18:43:50 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-30 18:43:50 -0400
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-30 18:43:55 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-10-30 18:44:14 -0400
+Processing by DeviseInvitable::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (155.4ms)
+Completed 200 OK in 174ms (Views: 161.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-30 18:44:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:15 -0400
+
+
+Started POST "/users" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+Processing by DeviseInvitable::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"98wonsV4b2Euqvlu5XSvrG54b65oA0a4e49MCPvlX6s=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (53.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'test@test.com' AND "users"."encrypted_password" = '' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1
+  [1m[36mSQL (36.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 30 Oct 2013 22:44:30 UTC +00:00], ["email", "test@test.com"], ["encrypted_password", "$2a$10$CvpAfMn1x39zK5QjtpJG9enbBXnzejEONERvPjNvhPvzKRpJo6s6O"], ["updated_at", Wed, 30 Oct 2013 22:44:30 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["last_sign_in_at", Wed, 30 Oct 2013 22:44:30 UTC +00:00], ["current_sign_in_at", Wed, 30 Oct 2013 22:44:30 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Wed, 30 Oct 2013 22:44:30 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 261ms (ActiveRecord: 108.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-30 18:44:30 -0400

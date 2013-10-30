@@ -1,4 +1,4 @@
-class HomenController < ApplicationController::Base
+class HomeController < ApplicationController
   
   def index
     
