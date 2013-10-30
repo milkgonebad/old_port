@@ -11,6 +11,7 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+heroku_url.txt
 
 # YARD artifacts
 .yardoc
@@ -18,3 +19,4 @@ _yardoc
 doc/
 
 .project
+log/
