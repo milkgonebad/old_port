@@ -1,21 +1,34 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'devise_invitable'
 
-group :development, :test do
+# these probably should be in the assets group - development isn't happy without them though for some reason
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'simple_form'
+gem 'country_select'
+
+group :assets do
+  gem 'sass-rails' 
+  gem 'uglifier'
+  gem 'coffee-rails'
+end
+
+group :development do
+  gem 'debugger'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+end
+
+group :test do
   gem 'debugger'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
