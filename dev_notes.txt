@@ -1,0 +1,18 @@
+Notes for Old Port Apothecary or MedSafe Labs, LLC
+
+Templating System:
+Twitter Bootstrap
+
+
+Scaffolding:
+
+Model exists:
+
+rails g scaffold_controller User first_name:string last_name:string email:string address1:string address2:string city:string state:string country:string role:integer
+
+
+Devise
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable --migration false
