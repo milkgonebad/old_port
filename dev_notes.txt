@@ -6,13 +6,36 @@ Twitter Bootstrap
 
 Scaffolding:
 
-Model exists:
-
+If model exists:
 rails g scaffold_controller User first_name:string last_name:string email:string address1:string address2:string city:string state:string country:string role:integer
-
 
 Devise
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable --migration false
+         
+         
+Migrating to postgresql
+
+Need to create sequences
+http://cmar.me/2011/03/03/mysql-to-postgres-id-column-sequences/
+
+I needed to create on user to seed the sequence.  They should be deleted.
+Create the sequence:
+
+SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);
+Then add it to the table:
+ALTER TABLE users ALTER COLUMN "id" set DEFAULT NEXTVAL('users_id_seq');
+
+
+Super Admin user:
+super@medsafelabs.com
+P0rtland!
+
+
+TODO
+--> We should add an active flag or account status flag.
+--> should we disable resetting the password in the UI?
+--> test pushing db to heroku to make sure sequence id is working
+--> add password constraints
