@@ -7,6 +7,7 @@ OldPort::Application.routes.draw do
     
   scope '/admin' do # scope the user admin pages so they don't conflict with devise
     resources :users
+    resources :invitations
   end
 
   # Example of regular route:
