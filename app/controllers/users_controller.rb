@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.customers
   end
 
   def show
   end
 
   def new
-    @user = User.new
+    @user = User.new(:active => true, :country => 'United States')
   end
 
   def edit

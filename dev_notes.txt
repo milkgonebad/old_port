@@ -39,3 +39,4 @@ TODO
 --> should we disable resetting the password in the UI?
 --> test pushing db to heroku to make sure sequence id is working
 --> add password constraints
+--> prevent deactivated users from logging in

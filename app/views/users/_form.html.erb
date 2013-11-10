@@ -2,15 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+    <%= f.input :first_name, :label => 'First Name' %>
+    <%= f.input :last_name, :label => 'Last Name' %>
     <%= f.input :email %>
-    <%= f.input :address1 %>
-    <%= f.input :address2 %>
+    <%= f.input :address1, :label => 'Mailing Address 1' %>
+    <%= f.input :address2, :label => 'Mailing Address 2' %>
     <%= f.input :city %>
-    <%= f.input :state %>
+    <%= f.input :state, :collection => STATES.invert, :selected => :state, :include_blank => true %>
     <%= f.input :country %>
-    <%= f.input :role %>
+    <%= f.input :active %>
+    <%= f.input :registration_number, :label => 'State Caregiver/Dispensary Registration #' %>
+    <%= f.input :control_number, :label => 'Control #' %>
+    <%= f.input :issued_on, :label => 'Issued' %>
+    <%= f.input :expires_on, :label => 'Expires' %>
   </div>
 
   <div class="form-actions">

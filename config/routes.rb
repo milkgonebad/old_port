@@ -1,14 +1,17 @@
 OldPort::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root :to => "dashboard#index"
+  root :to => "home#index"
   
   devise_for :users
     
   scope '/admin' do # scope the user admin pages so they don't conflict with devise
     resources :users
     resources :invitations
+    resources :administrators
   end
+  
+  get '/dashboard' => 'dashboard#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
