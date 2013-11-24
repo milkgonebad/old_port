@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  validates :email, presence: true
+  validates :email, :first_name, :last_name, presence: true
+  validates :address1, :city, :state, :country, presence: true, unless: Proc.new { |a| a.admin? }
   
   scope :customers, -> { where('role is null', active: true) } # note "->" is the same thing as "lamda" - very annoying
   scope :all_customers, -> { where('role is null') }

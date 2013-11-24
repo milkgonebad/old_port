@@ -45,5 +45,30 @@
   <%= @user.role %>
 </p>
 
+<p>
+  <strong>Active:</strong>
+  <%= @user.active %>
+</p>
+
+<p>
+  <strong>State Caregiver/Dispensary Registration #:</strong>
+  <%= @user.registration_number %>
+</p>
+
+<p>
+  <strong>Control #:</strong>
+  <%= @user.control_number %>
+</p>
+
+<p>
+  <strong>Issued:</strong>
+  <%= @user.issued_on %>
+</p>
+
+<p>
+  <strong>Expires:</strong>
+  <%= @user.expires_on %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

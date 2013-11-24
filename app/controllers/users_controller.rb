@@ -18,12 +18,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.invite!(current_user)
     
     # generate a password here or invite the user?
     
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'User was successfully invited.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new', alert:  @user.errors.inspect }
@@ -45,10 +46,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    @user.active = false
+    if @user.save
+      redirect_to @user, notice: 'Customer was successfully deactivated.'
+    else
+      redirect_to @user, alert: 'Customer was not successfully deactivated.'
     end
   end
 

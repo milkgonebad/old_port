@@ -40,3 +40,11 @@ TODO
 --> test pushing db to heroku to make sure sequence id is working
 --> add password constraints
 --> prevent deactivated users from logging in
+--> add a way to resend invites
+--> Check that user fields are being set
+--> Need ID registration info for dispensaries
+
+
+Hours
+previous - 4
+11/17 - 
