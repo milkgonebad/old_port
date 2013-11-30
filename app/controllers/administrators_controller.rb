@@ -1,5 +1,7 @@
 class AdministratorsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_administrator, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_super_admin
 
   def index
     @administrators = params[:all] ? User.all_administrators : User.administrators
@@ -9,17 +11,17 @@ class AdministratorsController < ApplicationController
   end
 
   def new
-    @administrator = User.new(:role => User::ROLES[:administrator], :active => true)
+    @administrator = User.new(:active => true)
   end
 
   def edit
   end
 
   def create
-    @administrator = Administrator.new(administrator_params)
-
+    @administrator = User.new(administrator_params)
+    @administrator.role = User::ROLES[:administrator]
     if @administrator.save
-      redirect_to @administrator, notice: 'Administrator was successfully created.'
+      redirect_to administrators_path, notice: 'Administrator was successfully created.'
     else
       render action: 'new'
     end
@@ -27,7 +29,7 @@ class AdministratorsController < ApplicationController
 
   def update
     if @administrator.update(administrator_params)
-      redirect_to @administrator, notice: 'Administrator was successfully updated.'
+      redirect_to administrators_path, notice: 'Administrator was successfully updated.'
     else
       render action: 'edit'
     end
@@ -45,11 +47,15 @@ class AdministratorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_administrator
-      @administrator = Administrator.find(params[:id])
+      @administrator = User.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def administrator_params
-      params.require(:administrator).permit(:first_name, :last_name, :role, :email, :password, :password_confirmation, :active)
+      params.require(:user).permit(:first_name, :last_name, :role, :email, :password, :password_confirmation, :active)
+    end
+    
+    def ensure_super_admin
+      redirect_to dashboard_path unless current_user.is_super_admin?
     end
 end

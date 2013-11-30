@@ -19,9 +19,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.invite!(current_user)
-    
-    # generate a password here or invite the user?
-    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully invited.' }
@@ -62,7 +59,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :country, :role)
+      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :country, :role,
+        :registration_number, :control_number, :issued_on, :expires_on, :active)
     end
   
     def ensure_admin

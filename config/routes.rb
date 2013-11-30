@@ -1,4 +1,9 @@
 OldPort::Application.routes.draw do
+  
+  # leave these at the top level for now - we may move them under customers
+  resources :tests
+  resources :orders
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root :to => "home#index"

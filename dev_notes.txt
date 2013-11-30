@@ -33,6 +33,10 @@ Super Admin user:
 super@medsafelabs.com
 P0rtland!
 
+Test Admin user (on my laptop):
+meow@test.com
+12345678
+
 
 TODO
 --> We should add an active flag or account status flag.

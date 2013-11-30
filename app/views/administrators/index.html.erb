@@ -26,7 +26,7 @@
         <td><%= administrator.password %></td>
         <td><%= administrator.password_confirmation %></td>
         <td><%= administrator.active %></td>
-        <td><%= link_to 'Show', administrator %></td>
+        <td><%= link_to 'Show', administrator_path(administrator) %></td>
         <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
         <td><%= link_to 'Deactivate', administrator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
