@@ -26,6 +26,7 @@ group :development do
   gem 'rspec-rails'
   gem 'cucumber'
   gem 'cucumber-rails', :require => false
+  gem 'quiet_assets'
 end
 
 group :test do

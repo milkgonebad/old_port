@@ -62,12 +62,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :country, :role,
         :registration_number, :control_number, :issued_on, :expires_on, :active)
     end
-  
-    def ensure_admin
-      unless current_user.admin?
-        flash[:error] = 'You are not authorized to edit users.'
-        redirect_to root_path
-      end 
-    end
 
 end

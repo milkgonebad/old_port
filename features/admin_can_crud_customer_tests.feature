@@ -8,7 +8,6 @@ Feature:  An Admin can CRUD Tests for a customer
 Background:
 	Given I am an admin with email "some_admin@medsafelabs.com"
 	And customer "Bob Small" exists
-	
 
 Scenario:  An admin can view a customer's tests
 	Given I am on the customer index page
@@ -21,3 +20,5 @@ Scenario:  An admin can create a test for a customer
 	And I fill in the form
 	Then I should be on Bob's test page
 	And his test should appear
+	
+Scenario:  View tests associated with an order

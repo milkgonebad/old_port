@@ -1,8 +1,4 @@
 OldPort::Application.routes.draw do
-  
-  # leave these at the top level for now - we may move them under customers
-  resources :tests
-  resources :orders
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,7 +7,10 @@ OldPort::Application.routes.draw do
   devise_for :users
     
   scope '/admin' do # scope the user admin pages so they don't conflict with devise
-    resources :users
+    resources :users do
+      resources :orders
+      resources :tests
+    end
     resources :invitations
     resources :administrators
   end

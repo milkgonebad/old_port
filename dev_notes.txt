@@ -39,6 +39,16 @@ meow@test.com
 
 
 TODO
+- Add edit/show pages for tests
+- Create QR code controller to do the following:
+-- add a new qr code
+-- find an existing qr code
+-- From there:  show - set received, in progress, complete statuses - need new date fields
+
+BACKLOG
+- notify user daily of completed tests - not one per test
+- generate qr codes
+- integrate with paypal or something
 --> We should add an active flag or account status flag.
 --> should we disable resetting the password in the UI?
 --> test pushing db to heroku to make sure sequence id is working
@@ -47,6 +57,8 @@ TODO
 --> add a way to resend invites
 --> Check that user fields are being set
 --> Need ID registration info for dispensaries
+
+
 
 
 Hours
