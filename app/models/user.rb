@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :tests, :through => :orders
   
   validates :email, :first_name, :last_name, presence: true
+  validates :email, uniqueness:  true
   validates :address1, :city, :state, :country, presence: true, unless: Proc.new { |a| a.admin? }
   validates :control_number, numericality: { only_integer: true }, unless: Proc.new { |a| a.admin? }
   
