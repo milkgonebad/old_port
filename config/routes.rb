@@ -16,6 +16,7 @@ OldPort::Application.routes.draw do
   end
   
   get '/dashboard' => 'dashboard#index'
+  get '/qr/:id' => 'qr#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

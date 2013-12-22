@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'devise_invitable'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # these probably should be in the assets group - development isn't happy without them though for some reason
 gem "less-rails"

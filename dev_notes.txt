@@ -44,9 +44,12 @@ TODO
 -- add a new qr code
 -- find an existing qr code
 -- From there:  show - set received, in progress, complete statuses - need new date fields
+- strains need to be added/updated in the db
+- mechanism for updating statuses
 
 BACKLOG
 - notify user daily of completed tests - not one per test
+- updated by - tested by fields on the test
 - generate qr codes
 - integrate with paypal or something
 --> We should add an active flag or account status flag.

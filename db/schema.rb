@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205023845) do
+ActiveRecord::Schema.define(version: 20131222002718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,17 +27,24 @@ ActiveRecord::Schema.define(version: 20131205023845) do
     t.float    "total"
   end
 
+  create_table "qrs", force: true do |t|
+    t.string   "qr_code_number"
+    t.boolean  "used"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tests", force: true do |t|
     t.text     "notes"
     t.string   "status"
     t.string   "strain"
     t.string   "qr_code_number"
     t.string   "sample_type"
-    t.integer  "cbn"
-    t.integer  "thc"
-    t.integer  "thcv"
-    t.integer  "cbg"
-    t.integer  "thca"
+    t.float    "cbn"
+    t.float    "thc"
+    t.float    "thcv"
+    t.float    "cbg"
+    t.float    "thca"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
@@ -45,6 +52,12 @@ ActiveRecord::Schema.define(version: 20131205023845) do
     t.datetime "received_at"
     t.datetime "in_progress_at"
     t.datetime "completed_at"
+    t.float    "cbd"
+    t.float    "cbc"
+    t.string   "plate_file_name"
+    t.string   "plate_content_type"
+    t.integer  "plate_file_size"
+    t.datetime "plate_updated_at"
   end
 
   create_table "users", force: true do |t|

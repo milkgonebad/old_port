@@ -60,6 +60,7 @@ class OrdersController < ApplicationController
     
     def set_customer
       @customer = User.find(params[:user_id].to_i)
+      session[:customer_id] = @customer.id
     end
 
     def order_params

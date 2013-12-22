@@ -2,9 +2,29 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+  	<%= f.input :status, :collection => Test::STATUSES, :selected => @test.status %>
+  	<%= f.input :strain, :collection => Strain.all, :selected => @test.strain, :include_blank => true %>
+  	<%= f.input :notes %>
+  	<%= f.input :qr_code_number %>
+  	<%= f.input :sample_type, :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
+  	<% if @test.in_progress? %>
+  		<%= f.input :cbd %>
+		<%= f.input :cbn %>
+	  	<%= f.input :thc %>
+	  	<%= f.input :thcv %>
+	  	<%= f.input :cbg %>
+	  	<%= f.input :cbc %>
+	  	<%= f.input :thca %>
+	  	<div class="field">
+  			<%= f.label :plate %><br/>
+  			<%= f.file_field :plate %>
+		</div>
+	<% end %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+:cbn, :thc, :thcv, :cbg, :thca, 

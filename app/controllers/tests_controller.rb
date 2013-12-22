@@ -16,6 +16,9 @@ class TestsController < ApplicationController
   end
 
   def update
+  
+    puts "params are " << test_params.inspect
+
     respond_to do |format|
       if @test.update(test_params)
         format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
@@ -43,10 +46,11 @@ class TestsController < ApplicationController
     
     def set_customer
       @customer = User.find(params[:user_id].to_i)
+      session[:customer_id] = @customer.id
     end
 
     def test_params
-      params.require(:test).permit(:memo, :payment_type, :quantity, :total)
+      params.require(:test).permit(:status, :strain, :notes, :qr_code_number, :sample_type, :cdb, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate)
     end
 
 end
