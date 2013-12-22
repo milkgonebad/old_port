@@ -1,11 +1,13 @@
 <%= simple_form_for(@test, url: user_test_path(@customer, @test)) do |f| %>
   <%= f.error_notification %>
-
+  <p>
+	<strong>Order #</strong>
+	<%= link_to @test.order_id, user_order_path(@customer, @test.order) %>
+  </p>
   <div class="form-inputs">
   	<%= f.input :status, :collection => Test::STATUSES, :selected => @test.status %>
   	<%= f.input :strain, :collection => Strain.all, :selected => @test.strain, :include_blank => true %>
   	<%= f.input :notes %>
-  	<%= f.input :qr_code_number %>
   	<%= f.input :sample_type, :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
   	<% if @test.in_progress? %>
   		<%= f.input :cbd %>
@@ -20,11 +22,11 @@
   			<%= f.file_field :plate %>
 		</div>
 	<% end %>
+	<% if defined? @has_qr %>
+		<%= f.input :qr_code_number, as: :hidden %>
+  	<% end %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
-
-:cbn, :thc, :thcv, :cbg, :thca, 

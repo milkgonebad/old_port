@@ -3,7 +3,7 @@ class Test < ActiveRecord::Base
   belongs_to :user # customer user - not so normalized
   #TODO need a belongs_to for admin tester
   
-  validates :order, :status, presence: true # tests cannot exist without an order
+  validates :order, :status, :user, presence: true # tests cannot exist without an order
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   
   STATUSES = {not_received: 'NOT_RECEIVED', received: 'RECEIVED', in_progress: 'IN_PROGRESS', complete: 'COMPLETE'}

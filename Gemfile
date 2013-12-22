@@ -8,6 +8,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'exception_notification'
 
 # these probably should be in the assets group - development isn't happy without them though for some reason
 gem "less-rails"

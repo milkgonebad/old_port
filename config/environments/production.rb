@@ -93,3 +93,10 @@ OldPort::Application.configure do
   }
   
 end
+
+OldPort::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[ERROR MedSafeLabs] ",
+    :sender_address => %{"notifier" <notifier@medsafelabs.com>},
+    :exception_recipients => %w{amy@gothicmaine.com}
+  }

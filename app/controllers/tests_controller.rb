@@ -2,6 +2,7 @@ class TestsController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
   before_action :set_test, only: [:show, :edit, :update, :destroy]
   before_action :set_customer
+  before_filter :check_qr_code, only: [:update]
 
   def index
     # filter by user or by order... at least for now
@@ -13,14 +14,20 @@ class TestsController < ApplicationController
   end
 
   def edit
+    if params[:qr_code_number] and @test.qr_code_number.nil?
+      @test.qr_code_number = params[:qr_code_number] 
+      @has_qr = true
+    end
   end
 
   def update
-  
-    puts "params are " << test_params.inspect
 
     respond_to do |format|
       if @test.update(test_params)
+        if defined? @qr # update the qr code so it can't be reused
+          @qr.availble = false
+          @qr.save!
+        end
         format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
         format.json { head :no_content }
       else
@@ -40,6 +47,15 @@ class TestsController < ApplicationController
   end
 
   private
+  
+    def check_qr_code
+      if params.include? :qr_code_number
+          @qr = Qr.available.find_by qr_code_number: params[:qr_code_number]
+          flash[:error] = "This QR code '" + params[:qr_code_number] + "' is not in our system or has already been used."
+          redirect_to :edit and return
+      end
+    end
+  
     def set_test
       @test = Test.find(params[:id])
     end

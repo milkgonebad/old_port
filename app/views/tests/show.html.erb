@@ -27,6 +27,11 @@
   <%= @test.sample_type %>
 </p>
 
+<p>
+  <strong>QR Code</strong>
+  <%= @test.qr_code_number %>
+</p>
+
 <% if @test.complete? or @test.in_progress? %>
 	<p>
 	  <strong>CBD</strong>
