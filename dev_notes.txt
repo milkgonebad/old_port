@@ -52,6 +52,9 @@ BACKLOG
 - updated by - tested by fields on the test
 - generate qr codes
 - integrate with paypal or something
+- Need to maintain image if form validation fails - offer js front end validation
+- Clean up destroy
+- security on result images
 --> We should add an active flag or account status flag.
 --> should we disable resetting the password in the UI?
 --> test pushing db to heroku to make sure sequence id is working

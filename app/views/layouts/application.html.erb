@@ -57,7 +57,7 @@
               	<li><%= link_to "Orders", user_orders_path(@customer) %></li>
               	<li><%= link_to "Tests", user_tests_path(@customer) %></li>
               <% end %>
-              <% if current_user.is_super_admin? %>
+              <% if current_user.super_admin? %>
               	<li><%= link_to "Administrators", administrators_path %></li>
               <% end %>
               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>

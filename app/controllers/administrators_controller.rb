@@ -56,6 +56,6 @@ class AdministratorsController < ApplicationController
     end
     
     def ensure_super_admin
-      redirect_to dashboard_path unless current_user.is_super_admin?
+      redirect_to dashboard_path unless current_user.super_admin?
     end
 end

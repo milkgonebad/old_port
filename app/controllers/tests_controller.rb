@@ -14,6 +14,9 @@ class TestsController < ApplicationController
   end
 
   def edit
+    if @test.complete? and !current_user.super_admin?
+      redirect_to :show and return
+    end
     if params[:qr_code_number] and @test.qr_code_number.nil?
       @test.qr_code_number = params[:qr_code_number] 
       @has_qr = true
@@ -21,9 +24,15 @@ class TestsController < ApplicationController
   end
 
   def update
-
+    update_params = test_params
+    current_status = @test.status
+    update_params.merge!(status: @test.next_status) if params[:update_status] # only do this when the button is clicked
+    
+    puts "##### params:  "  << params.inspect
+    puts "##### update_params:  "  << update_params.inspect
+    
     respond_to do |format|
-      if @test.update(test_params)
+      if @test.update(update_params)
         if defined? @qr # update the qr code so it can't be reused
           @qr.availble = false
           @qr.save!
@@ -31,6 +40,7 @@ class TestsController < ApplicationController
         format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
         format.json { head :no_content }
       else
+        @test.status = current_status
         format.html { render action: 'edit' }
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end
@@ -66,7 +76,9 @@ class TestsController < ApplicationController
     end
 
     def test_params
-      params.require(:test).permit(:status, :strain, :notes, :qr_code_number, :sample_type, :cdb, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate)
+      params.require(:test).permit(
+        :status, :strain, :notes, :qr_code_number, :sample_type, :cbd, 
+        :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status)
     end
 
 end

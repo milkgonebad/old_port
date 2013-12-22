@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     !role.nil? 
   end
   
-  def is_super_admin?
+  def super_admin?
     role == ROLES[:super_administrator]
   end
 
