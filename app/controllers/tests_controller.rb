@@ -15,7 +15,7 @@ class TestsController < ApplicationController
 
   def edit
     if @test.complete? and !current_user.super_admin?
-      redirect_to :show and return
+      redirect_to :action => :show and return
     end
     if params[:qr_code_number] and @test.qr_code_number.nil?
       @test.qr_code_number = params[:qr_code_number] 
@@ -27,10 +27,7 @@ class TestsController < ApplicationController
     update_params = test_params
     current_status = @test.status
     update_params.merge!(status: @test.next_status) if params[:update_status] # only do this when the button is clicked
-    
-    puts "##### params:  "  << params.inspect
-    puts "##### update_params:  "  << update_params.inspect
-    
+    update_params.merge!(updated_by: current_user)
     respond_to do |format|
       if @test.update(update_params)
         if defined? @qr # update the qr code so it can't be reused

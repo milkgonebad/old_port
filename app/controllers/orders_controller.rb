@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = @customer.orders.new(order_params)
-    @order.admin_id = current_user.id
+    @order.creator = current_user
     respond_to do |format|
       if @order.save
         format.html { redirect_to user_order_path(@customer, @order), notice: 'Order was successfully created.' }

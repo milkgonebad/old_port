@@ -6,7 +6,7 @@ class QrController < ApplicationController
     if @test.nil?
       @qr = Qr.available.find_by qr_code_number: params[:id]
       if @qr.nil?
-        flash[:error] = "This QR code '" + params[:id] + "' is not in our system or has already been used.  I can't let you proceed."
+        flash[:error] = "This QR code '" + params[:id] + "' is not in our system or has already been used."
         redirect_to '/dashboard' and return
       end
     

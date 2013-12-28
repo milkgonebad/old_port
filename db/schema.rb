@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222002718) do
+ActiveRecord::Schema.define(version: 20131228204044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20131222002718) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "admin_id"
     t.integer  "quantity"
     t.float    "total"
+    t.integer  "created_by"
   end
 
   create_table "qrs", force: true do |t|
@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 20131222002718) do
     t.string   "plate_content_type"
     t.integer  "plate_file_size"
     t.datetime "plate_updated_at"
+    t.integer  "created_by"
+    t.integer  "received_by"
+    t.integer  "in_progress_by"
+    t.integer  "completed_by"
+    t.datetime "completed_email_sent_at"
   end
 
   create_table "users", force: true do |t|

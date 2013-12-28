@@ -1,7 +1,10 @@
 class Test < ActiveRecord::Base
   belongs_to :order
   belongs_to :user # customer user - not so normalized
-  #TODO need a belongs_to for admin tester
+  belongs_to :creator, class_name: "User", foreign_key:  "created_by"
+  belongs_to :receiver, class_name: "User", foreign_key:  "received_by"
+  belongs_to :in_progresser, class_name: "User", foreign_key:  "in_progress_by"
+  belongs_to :completer, class_name: "User", foreign_key:  "completed_by"
   
   has_attached_file :plate,  :default_url => "/images/:style/missing.png",
     styles: {
@@ -10,7 +13,7 @@ class Test < ActiveRecord::Base
       medium: '300x300>'
     }
   
-  validates :order, :status, :user, presence: true # tests cannot exist without an order
+  validates :order, :status, :user, :creator, presence: true # tests cannot exist without an order
   validates :qr_code_number, presence: true, if: :received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
@@ -24,13 +27,19 @@ class Test < ActiveRecord::Base
   STATUSES = {not_received: 'NOT_RECEIVED', received: 'RECEIVED', in_progress: 'IN_PROGRESS', complete: 'COMPLETE'}
   SAMPLE_TYPES = ['Flower', 'Concentrate', 'Oil', 'Edible']
   
+  scope :no_qr_code, -> { where qr_code_number: nil }
+  
+  attr_accessor :updated_by
+  
   after_initialize do |t|
     t.status = STATUSES[:not_received] if t.status.nil?
   end
   
-  scope :no_qr_code, -> { where qr_code_number: nil }
-  
   after_save :update_status_timestamps
+  
+  after_save  do |t| 
+    t.send_test_result_email if t.complete?
+  end
   
   #FIXME:  These could be metaprogrammed into something smarter but rails 4.1 has that nice enum feature...
   def in_progress?
@@ -62,18 +71,41 @@ class Test < ActiveRecord::Base
     end
   end
   
+  def result_url
+    "MOOO"
+  end
+  
+  protected
+  
+  #FIXME:  Yep, ugly!
   def update_status_timestamps
-    puts "###### updating timestamps!!!"
     if valid?
       case status
         when STATUSES[:received]
-          update_attribute(:received_at, Time.now) if received_at.nil?
+          if received_at.nil?
+            update_attribute(:received_at, Time.now) 
+            update_attribute(:received_by, updated_by.id) 
+          end
         when STATUSES[:in_progress]
-          update_attribute(:in_progress_at, Time.now) if in_progress_at.nil?
+          if in_progress_at.nil?
+            update_attribute(:in_progress_at, Time.now) 
+            update_attribute(:in_progress_by, updated_by.id) 
+          end
         when STATUSES[:complete]
-          update_attribute(:completed_at, Time.now) if completed_at.nil?
+          if completed_at.nil?
+            update_attribute(:completed_at, Time.now) 
+            update_attribute(:completed_by, updated_by.id) 
+          end
       end
     end
   end
+  
+  def send_test_result_email
+    # first ensure we haven't already sent the email - spam is bad but it really shouldn't happen
+    if completed_email_sent_at.nil?
+      TestMailer.results_available(self).deliver
+      update_attribute(:completed_email_sent_at, Time.now)
+    end
+  end 
   
 end

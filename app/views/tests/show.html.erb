@@ -74,6 +74,11 @@
 </p>
 
 <p>
+  <strong>Created By</strong>
+  <%= @test.creator.email %>
+</p>
+
+<p>
   <strong>Updated At</strong>
   <%= @test.updated_at %>
 </p>
@@ -82,6 +87,9 @@
 	<p>
 	  <strong>Received At</strong>
 	  <%= @test.received_at %>
+	  <br>
+	  <strong>Received By</strong>
+	  <%= @test.receiver.email %>
 	</p>
 <% end %>
 
@@ -89,6 +97,9 @@
 	<p>
 	  <strong>In Progress At</strong>
 	  <%= @test.in_progress_at %>
+	  <br>
+	  <strong>In Progress By</strong>
+	  <%= @test.in_progresser.email %>
 	</p>
 <% end %>
 
@@ -96,6 +107,9 @@
 	<p>
 	  <strong>Completed At</strong>
 	  <%= @test.completed_at %>
+	  <br>
+	  <strong>Completed By</strong>
+	  <%= @test.completer.email %>
 	</p>
 <% end %>
 

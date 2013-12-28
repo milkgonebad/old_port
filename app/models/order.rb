@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user # customer
   has_many :tests
+  belongs_to :creator, class_name: "User", foreign_key:  "created_by"
   
   after_create :create_tests
   
@@ -15,14 +16,10 @@ class Order < ActiveRecord::Base
     self.total = 50
   end
 
-  def creator
-    admin_id.nil? ? nil : User.find(admin_id).email
-  end
-
   protected
   
   def create_tests
-    self.quantity.times { self.tests.create(:user => self.user) }
+    self.quantity.times { self.tests.create(:user => self.user, :creator => self.creator) }
     logger.debug "I would create a test here this many times:  " << quantity.to_s
   end
   
