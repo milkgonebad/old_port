@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   
   has_many :orders
   has_many :tests, :through => :orders
@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
   scope :all_administrators, -> { where('role is not null').order(:last_name, :first_name) }
   
   ROLES = {:customer => nil, :super_administrator => 0, :administrator => 1}
+  
+  # default the user to active
+  after_create do |u|
+    u.update_attribute(:active, true) if u.active.nil?
+  end
   
   def admin?
     !role.nil? 

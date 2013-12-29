@@ -39,10 +39,13 @@ meow@test.com
 
 
 TODO
-- notify user daily of completed tests - not one per test
+- add fields to edit your own acct page
 
 
 BACKLOG
+- Cancel account yourself
+- notify user daily of completed tests - not one per test
+- add password confirmation
 - strains need to be added/updated in the db
 - generate qr codes
 - add shopping cart

@@ -72,7 +72,7 @@ class Test < ActiveRecord::Base
   end
   
   def result_url
-    "MOOO"
+    '/results/' + id.to_s
   end
   
   protected

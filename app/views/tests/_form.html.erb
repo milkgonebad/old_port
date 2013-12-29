@@ -40,8 +40,11 @@
   </div>
   
   <div class="form-actions">
-    <%= f.button :submit %> or
-    <%= f.button :submit, :name => "update_status", :value => "Update and Set Status to " + @test.next_status  %>
+    <%= f.button :submit %> 
+    <% unless @test.not_received? %>
+    	or
+    	<%= f.button :submit, :name => "update_status", :value => "Update and Set Status to " + @test.next_status  %>
+    <% end %>
   </div>
   
 <% end %>

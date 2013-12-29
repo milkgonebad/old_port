@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   
   def after_sign_in_path_for(resource)
     '/dashboard'
@@ -16,6 +17,11 @@ class ApplicationController < ActionController::Base
       flash[:error] = 'You are not authorized to edit users.'
       redirect_to root_path
     end 
+  end
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :email, :address1, :address2, :city, :state, :country,
+        :registration_number, :control_number, :issued_on, :expires_on]
   end
   
 end

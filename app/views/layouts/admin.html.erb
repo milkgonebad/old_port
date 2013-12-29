@@ -49,8 +49,22 @@
           <a class="brand" href="/">MedSafe Labs</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "About Us", '#'  %></li>
-              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Dashboard", '/dashboard'  %></li>
+              <% if current_user.admin? %>
+              	<li><%= link_to "Customers", users_path  %></li>
+              <% end %>
+              <% if defined? @customer %>
+              	<li><%= link_to "Orders", user_orders_path(@customer) %></li>
+              	<li><%= link_to "Tests", user_tests_path(@customer) %></li>
+              <% end %>
+              <% if current_user.super_admin? %>
+              	<li><%= link_to "Administrators", administrators_path %></li>
+              <% end %>
+              <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to current_user.email, edit_user_registration_path %></li>
+              <% if current_user.admin? and defined? @customer %>
+              	<li>Working with Customer:  <%= @customer.first_name %> <%= @customer.last_name %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -78,7 +92,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; MedSafe Labs, LLC <%= Date.today.year %></p>
+        <p>&copy; MedSafe Labs, LLC 2013-<%= Date.now.year %></p>
       </footer>
 
     </div> <!-- /container -->

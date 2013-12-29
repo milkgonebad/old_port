@@ -21,6 +21,7 @@ class AdministratorsController < ApplicationController
     @administrator = User.new(administrator_params)
     @administrator.role = User::ROLES[:administrator]
     if @administrator.save
+      @administrator.confirm!
       redirect_to administrators_path, notice: 'Administrator was successfully created.'
     else
       render action: 'new'
