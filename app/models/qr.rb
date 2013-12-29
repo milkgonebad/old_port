@@ -1,7 +1,5 @@
 require 'csv'
-
 class Qr < ActiveRecord::Base
-  
   scope :available, -> { where used: nil }
   
   def self.import(file)

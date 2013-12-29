@@ -39,7 +39,7 @@ meow@test.com
 
 
 TODO
-- Import QR codes
+
 
 BACKLOG
 - notify user daily of completed tests - not one per test
@@ -47,7 +47,6 @@ BACKLOG
 - generate qr codes
 - add shopping cart
 - integrate with paypal or something
-- Need to maintain image if form validation fails - offer js front end validation
 - Clean up destroy
 - We should add an active flag or account status flag.
 - add a way to resend invites
@@ -61,6 +60,7 @@ FIXME
 
 
 DONE
+- Import QR codes
 - Cancel account yourself
 - should we disable resetting the password in the UI?
 - add fields to edit your own acct page

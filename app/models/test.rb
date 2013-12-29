@@ -28,6 +28,10 @@ class Test < ActiveRecord::Base
   SAMPLE_TYPES = ['Flower', 'Concentrate', 'Oil', 'Edible']
   
   scope :no_qr_code, -> { where qr_code_number: nil }
+  scope :not_received, -> { where status: STATUSES[:not_received] }
+  scope :received, -> { where status: STATUSES[:received] }
+  scope :in_progress, -> { where status: STATUSES[:in_progress] }
+  scope :complete, -> { where status: STATUSES[:complete] }
   
   attr_accessor :updated_by
   
