@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   
   has_many :orders
@@ -33,6 +33,18 @@ class User < ActiveRecord::Base
   
   def super_admin?
     role == ROLES[:super_administrator]
+  end
+  
+  def destroy
+    update_attribute(:active, false)
+  end
+  
+  def active_for_authentication?
+    super && active
+  end
+
+  def inactive_message
+    "Sorry, this account has been deactivated."
   end
 
 end

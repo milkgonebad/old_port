@@ -57,6 +57,9 @@
               	<li><%= link_to "Orders", user_orders_path(@customer) %></li>
               	<li><%= link_to "Tests", user_tests_path(@customer) %></li>
               <% end %>
+              <% if current_user.admin? %>
+              	<li><%= link_to "Import QR Codes", qr_codes_path %></li>
+              <% end %>
               <% if current_user.super_admin? %>
               	<li><%= link_to "Administrators", administrators_path %></li>
               <% end %>

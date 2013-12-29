@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'devise_invitable'
+#gem 'devise_security_extension' # does not work in rails 4 yet https://github.com/phatworx/devise_security_extension
+gem 'rails_email_validator'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'exception_notification'

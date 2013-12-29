@@ -13,6 +13,9 @@ OldPort::Application.routes.draw do
     end
     resources :invitations
     resources :administrators
+    resources :qr_codes do
+      collection { post :import }
+    end
   end
   
   get '/dashboard' => 'dashboard#index'
