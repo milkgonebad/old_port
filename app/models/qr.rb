@@ -1,4 +1,5 @@
 require 'csv'
+
 class Qr < ActiveRecord::Base
   scope :available, -> { where used: nil }
   
@@ -15,6 +16,10 @@ class Qr < ActiveRecord::Base
       end
     end
     [num_created, num_exists]
+  end
+  
+  def generate
+    "http://" + ActionMailer::Base.default_url_options[:host] + "/qr/" + qr_code_number
   end
   
 end

@@ -11,6 +11,8 @@ gem 'rails_email_validator'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'exception_notification'
+gem 'rqrcode-rails3'
+gem 'mini_magick'
 
 # these probably should be in the assets group - development isn't happy without them though for some reason
 gem "less-rails"

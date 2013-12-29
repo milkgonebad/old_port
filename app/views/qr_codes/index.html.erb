@@ -4,3 +4,7 @@
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+
+<p>
+	<%= link_to "Display Next Available QR Code", qr_code_path(@qr)%>
+</p>

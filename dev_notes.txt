@@ -39,6 +39,8 @@ meow@test.com
 
 
 TODO
+- Add order history to customer view
+- Add QR code generator
 
 
 BACKLOG

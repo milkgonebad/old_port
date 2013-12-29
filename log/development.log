@@ -33567,3 +33567,814 @@ Processing by QrCodesController#import as HTML
   Rendered qr_codes/index.html.erb within layouts/application (0.5ms)
   [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
 Completed 200 OK in 202ms (Views: 99.7ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:21:53 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 25.0ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-12-28 22:21:55 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uivJ/3GRIXq8ERHO701kDRnrecfQaw8ZfOrNcP0iYOo="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 54ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-12-28 22:21:55 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (3.2ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-12-28 22:22:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zzYEafvqvv+6kMtqblWGxTmeU4PL+z+ZIZ14MnHttZk=", "user"=>{"email"=>"lily@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'lily@test.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 19[0m  [["last_sign_in_at", Sun, 29 Dec 2013 00:35:40 UTC +00:00], ["current_sign_in_at", Sun, 29 Dec 2013 03:22:03 UTC +00:00], ["sign_in_count", 4], ["updated_at", Sun, 29 Dec 2013 03:22:03 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 76ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:22:03 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 19 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/customer_view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 136ms (Views: 27.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:22:11 -0500
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 19 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/customer_view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:22:14 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 19 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/customer_view.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:22:23 -0500
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 19 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/customer_view.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-12-28 22:56:25 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bobZAlaejGNiGg+SEbCaBl3gyrehMWJ01JbeGN/sJr4="}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 19 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 83ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-12-28 22:56:25 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (21.5ms)
+Completed 200 OK in 108ms (Views: 106.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-12-28 22:56:32 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p+7YaS8TMq2d5mfQ/uuyakiOOTd+fDHmCUV6fDapZZk=", "user"=>{"email"=>"meow@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'meow@test.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 16  [["last_sign_in_at", Sun, 29 Dec 2013 02:30:36 UTC +00:00], ["current_sign_in_at", Sun, 29 Dec 2013 03:56:32 UTC +00:00], ["sign_in_count", 9], ["updated_at", Sun, 29 Dec 2013 03:56:32 UTC +00:00]]
+  [1m[36m (23.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 100ms (ActiveRecord: 25.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:56:32 -0500
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined method `customer?' for #<User:0x007fe7fd4fd138>):
+    57:               	<li><%= link_to "Orders", user_orders_path(@customer) %></li>
+    58:               	<li><%= link_to "Tests", user_tests_path(@customer) %></li>
+    59:               <% end %>
+    60:               <% if current_user.customer? %>
+    61:               	<li><%= link_to "Results", results_path %></li>
+    62:               	<li><%= link_to "Order History", "/dashboard" %></li>
+    63:               <% end %>
+  app/views/layouts/application.html.erb:60:in `_app_views_layouts_application_html_erb__655354078056910866_70317182050640'
+  app/controllers/dashboard_controller.rb:21:in `admin_view'
+  app/controllers/dashboard_controller.rb:6:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2013-12-28 22:57:03 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 104ms (Views: 72.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 22:57:06 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered qr_codes/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 22:57:55 -0500
+Processing by QrCodesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 59ms (Views: 26.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 22:57:58 -0500
+
+AbstractController::ActionNotFound (The action 'create' could not be found for QrCodesController):
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1459555372096493637__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 22:59:26 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered qr_codes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:01:13 -0500
+Processing by QrCodesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 58ms (Views: 24.0ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:01:20 -0500
+
+AbstractController::ActionNotFound (The action 'create' could not be found for QrCodesController):
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1459555372096493637__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:01:25 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered qr_codes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 77ms (Views: 74.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:01:28 -0500
+
+AbstractController::ActionNotFound (The action 'create' could not be found for QrCodesController):
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1459555372096493637__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:01:43 -0500
+Processing by QrCodesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/admin/qr_codes/import" for 127.0.0.1 at 2013-12-28 23:01:52 -0500
+Processing by QrCodesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9ifHwz6veoLvxje17F1L+NqTF9/avNVhu+dYH9P2M8=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fe7fd596b58 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20131228-86724-rdq6ev>, @original_filename="qr_code_sample.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"qr_code_sample.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 9ms
+
+LoadError (cannot load such file -- rqrcode):
+  app/models/qr.rb:2:in `<top (required)>'
+  app/controllers/qr_codes_controller.rb:12:in `import'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+
+
+Started POST "/admin/qr_codes/import" for 127.0.0.1 at 2013-12-28 23:04:07 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QrCodesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9ifHwz6veoLvxje17F1L+NqTF9/avNVhu+dYH9P2M8=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd68a323aa8 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20131228-88860-1dvf0i1>, @original_filename="qr_code_sample.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"qr_code_sample.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50010'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50020'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50030'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50040'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50050'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50060'
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50070'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50080'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50090'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "qrs" WHERE "qrs"."qr_code_number" = '50100'
+Redirected to http://localhost:3000/admin/qr_codes
+Completed 302 Found in 166ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:04:07 -0500
+Processing by QrCodesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 507ms (Views: 504.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2013-12-28 23:06:53 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 109ms (Views: 66.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:06:55 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.7ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd68b769aa8>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279719787640'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.7ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:06:55 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd6908a20c8>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:08:08 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd68b6289c8>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:08:38 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd68b197198>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:11:12 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd68b45ef70>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:14:49 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 47ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd68b621128>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (41.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.5ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:27:30 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 128ms
+
+ActionView::Template::Error (undefined method `modules' for #<Qr:0x007fd688bdea50>):
+    23: <p id="notice"><%= notice %></p>
+    24: 
+    25: <table>
+    26:  <% @qr.modules.each_index do |x| -%>
+    27:    <tr>
+    28:    <% @qr.modules.each_index do |y| -%>
+    29:     <% if @qr.dark?(x,y) -%>
+  app/views/qr_codes/show.html.erb:26:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279762346420'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:28:00 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (No route matches {:id=>nil} missing required keys: [:id]):
+    4: 
+    5: 
+    6: 
+    7: <%= link_to 'Edit', edit_qr_code_path(@qr_code) %> |
+    8: <%= link_to 'Back', qr_codes_path %>
+  app/views/qr_codes/show.html.erb:7:in `_app_views_qr_codes_show_html_erb___4277846011723533415_70279709744940'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/qr_codes/1" for 127.0.0.1 at 2013-12-28 23:28:10 -0500
+Processing by QrCodesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered qr_codes/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 84ms (Views: 80.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/qr_codes/1.png" for 127.0.0.1 at 2013-12-28 23:28:17 -0500
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:png], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/qr_codes/1.png" for 127.0.0.1 at 2013-12-28 23:32:27 -0500
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.2ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 84ms
+
+NameError (uninitialized constant Mime::SVG):
+  app/controllers/qr_codes_controller.rb:12:in `block in show'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/admin/qr_codes/1.png" for 127.0.0.1 at 2013-12-28 23:32:52 -0500
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 43ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:png], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:13:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin/qr_codes/1.jpg" for 127.0.0.1 at 2013-12-28 23:33:03 -0500
+Processing by QrCodesController#show as JPEG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.2ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:jpeg], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:15:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes/1.jpg" for 127.0.0.1 at 2013-12-28 23:33:25 -0500
+Processing by QrCodesController#show as JPEG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.2ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 43ms
+
+NameError (uninitialized constant Mime::SVG):
+  app/controllers/qr_codes_controller.rb:12:in `block in show'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.9ms)
+
+
+Started GET "/admin/qr_codes/1.gif" for 127.0.0.1 at 2013-12-28 23:33:40 -0500
+Processing by QrCodesController#show as GIF
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 86ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:gif], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:14:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:10:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes/1.gif" for 127.0.0.1 at 2013-12-28 23:34:31 -0500
+Processing by QrCodesController#show as GIF
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 88ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:gif], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:15:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:11:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes/1?format=gif" for 127.0.0.1 at 2013-12-28 23:35:33 -0500
+Processing by QrCodesController#show as GIF
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:gif], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:15:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:11:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes/1?format=png" for 127.0.0.1 at 2013-12-28 23:35:38 -0500
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.2ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template qr_codes/show, application/show with {:locale=>[:en], :formats=>[:png], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/milkgonebad/old_port/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/twitter-bootstrap-rails-2.2.8/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise_invitable-1.3.1/app/views"
+  * "/Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/devise-3.2.2/app/views"
+):
+  app/controllers/qr_codes_controller.rb:14:in `block (2 levels) in show'
+  app/controllers/qr_codes_controller.rb:11:in `show'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin/qr_codes/1?format=png" for 127.0.0.1 at 2013-12-28 23:36:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.8ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered text template (0.1ms)
+Completed 200 OK in 1478ms (Views: 1286.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/admin/qr_codes/1?format=png" for 127.0.0.1 at 2013-12-28 23:37:13 -0500
+Processing by QrCodesController#show as PNG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.5ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 331ms (Views: 243.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/admin/qr_codes/1.jpeg" for 127.0.0.1 at 2013-12-28 23:37:29 -0500
+Processing by QrCodesController#show as JPEG
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 358ms (Views: 353.5ms | ActiveRecord: 1.2ms)

@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     !role.nil? 
   end
   
+  def customer?
+    role.nil?
+  end
+  
   def super_admin?
     role == ROLES[:super_administrator]
   end
